@@ -1,0 +1,2409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HALO: The Savior Protocol | Divine Memecoin on Hedera</title>
+    <meta name="description" content="HALO - The divine response to disbelief. A celestial memecoin project bringing hope and community empowerment to the Hedera Hashgraph ecosystem.">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts - Celestial Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Root Variables and Foundation */
+        :root {
+            --primary-gold: #FFD700;
+            --secondary-gold: #FFA500;
+            --celestial-blue: #87CEEB;
+            --divine-white: #FFFEF7;
+            --holy-light: #F8F8FF;
+            --shadow-dark: rgba(0, 0, 0, 0.1);
+            --gradient-divine: linear-gradient(135deg, #FFD700, #FFA500, #87CEEB);
+            --gradient-hero: linear-gradient(135deg, rgba(255, 215, 0, 0.9), rgba(135, 206, 235, 0.8));
+            
+            --font-heading: "Cinzel Decorative", serif;
+            --font-body: 'Orbitron', sans-serif;
+            
+            --container-max: 1200px;
+            --section-padding: 5rem 0;
+            --border-radius: 12px;
+            --transition-smooth: all 0.3s ease;
+            --shadow-celestial: 0 8px 32px rgba(255, 215, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.7;
+            color: #333;
+            background: var(--divine-white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Navigation Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            z-index: 1000;
+            transition: var(--transition-smooth);
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-celestial);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+
+        .nav-logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--gradient-divine);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-logo i {
+            color: var(--primary-gold);
+            font-size: 2rem;
+            filter: drop-shadow(0 2px 4px rgba(255, 215, 0, 0.3));
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition-smooth);
+            padding: 0.5rem 0;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-gold);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-divine);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-gold);
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: var(--gradient-hero);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 30%, rgba(135, 206, 235, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            color: var(--primary-gold);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-divine);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            color: #666;
+            margin-bottom: 3rem;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: var(--transition-smooth);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-primary {
+            background: var(--gradient-divine);
+            color: white;
+            box-shadow: var(--shadow-celestial);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(255, 215, 0, 0.3);
+        }
+
+        .cta-secondary {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary-gold);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+
+        .cta-secondary:hover {
+            background: rgba(255, 215, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            margin-top: 4rem;
+            position: relative;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-celestial);
+            filter: drop-shadow(0 8px 32px rgba(255, 215, 0, 0.2));
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-top: 1px solid rgba(255, 215, 0, 0.2);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition-smooth);
+            }
+
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-logo {
+                font-size: 1.5rem;
+            }
+
+            .hero {
+                padding: 8rem 0 4rem;
+                min-height: auto;
+            }
+
+            .hero-badge {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .cta-button {
+                padding: 0.875rem 1.75rem;
+                font-size: 0.95rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0.75rem 1rem;
+            }
+
+            .nav-logo {
+                font-size: 1.3rem;
+            }
+
+            .nav-logo i {
+                font-size: 1.5rem;
+            }
+
+            .hero {
+                padding: 6rem 0 3rem;
+            }
+
+            .hero-subtitle {
+                margin-bottom: 2rem;
+            }
+
+            .hero-image {
+                margin-top: 2.5rem;
+            }
+        }
+
+        /* About Section Styles */
+        .about {
+            padding: var(--section-padding);
+            background: linear-gradient(135deg, var(--divine-white) 0%, var(--holy-light) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(135, 206, 235, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            background: var(--gradient-divine);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(255, 215, 0, 0.2);
+        }
+
+        .section-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .about-timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5rem;
+            position: relative;
+        }
+
+        .timeline-item.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-item.reverse .timeline-content {
+            text-align: right;
+        }
+
+        .timeline-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--gradient-divine);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            box-shadow: var(--shadow-celestial);
+            position: relative;
+            z-index: 3;
+            flex-shrink: 0;
+        }
+
+        .timeline-content {
+            flex: 1;
+            padding: 0 3rem;
+        }
+
+        .timeline-title {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-image {
+            max-width: 400px;
+            margin: 2rem 0;
+        }
+
+        .timeline-image img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-celestial);
+            filter: drop-shadow(0 4px 16px rgba(255, 215, 0, 0.15));
+        }
+
+        /* Roadmap Section Styles */
+        .roadmap {
+            padding: var(--section-padding);
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(135, 206, 235, 0.05) 100%);
+            position: relative;
+        }
+
+        .roadmap::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23FFD700" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%2387CEEB" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .roadmap-timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .roadmap-phase {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 4rem;
+            position: relative;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            transition: var(--transition-smooth);
+        }
+
+        .roadmap-phase:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-celestial);
+        }
+
+        .roadmap-phase.completed {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: var(--primary-gold);
+        }
+
+        .roadmap-phase.active {
+            background: rgba(135, 206, 235, 0.1);
+            border-color: var(--celestial-blue);
+            box-shadow: 0 0 20px rgba(135, 206, 235, 0.3);
+        }
+
+        .phase-number {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 700;
+            color: rgba(255, 215, 0, 0.3);
+            margin-right: 2rem;
+            flex-shrink: 0;
+        }
+
+        .phase-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-divine);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            margin-right: 2rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 16px rgba(255, 215, 0, 0.3);
+        }
+
+        .phase-content {
+            flex: 1;
+        }
+
+        .phase-title {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .phase-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .completed-tag {
+            background: rgba(34, 197, 94, 0.2);
+            color: #059669;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        .active-tag {
+            background: rgba(59, 130, 246, 0.2);
+            color: #2563eb;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .upcoming-tag {
+            background: rgba(245, 158, 11, 0.2);
+            color: #d97706;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .phase-description {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #555;
+            margin: 1.5rem 0;
+        }
+
+        .phase-milestones {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .phase-milestones li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 0;
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .phase-milestones i {
+            color: var(--primary-gold);
+            width: 16px;
+        }
+
+        /* Responsive Design for About and Roadmap */
+        @media (max-width: 768px) {
+            .about {
+                padding: 4rem 0;
+            }
+
+            .section-header {
+                margin-bottom: 3rem;
+            }
+
+            .timeline-item {
+                flex-direction: column !important;
+                text-align: center;
+                margin-bottom: 3rem;
+            }
+
+            .timeline-item.reverse .timeline-content {
+                text-align: center;
+            }
+
+            .timeline-content {
+                padding: 2rem 0 0 0;
+            }
+
+            .timeline-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .timeline-image {
+                max-width: 300px;
+                margin: 1.5rem auto;
+            }
+
+            .roadmap {
+                padding: 4rem 0;
+            }
+
+            .roadmap-phase {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.5rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .phase-number {
+                font-size: 2rem;
+                margin: 0 0 1rem 0;
+            }
+
+            .phase-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+                margin: 0 auto 1.5rem auto;
+            }
+
+            .phase-title {
+                font-size: 1.5rem;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .phase-milestones li {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .timeline-title {
+                font-size: 1.5rem;
+            }
+
+            .timeline-text {
+                font-size: 1rem;
+            }
+
+            .timeline-image {
+                max-width: 250px;
+            }
+
+            .phase-title {
+                font-size: 1.3rem;
+            }
+
+            .phase-description {
+                font-size: 1rem;
+            }
+
+            .phase-milestones li {
+                font-size: 0.9rem;
+            }
+        }
+
+         /* Tokenomics Section Styles */
+        .tokenomics {
+            padding: var(--section-padding);
+            background: linear-gradient(135deg, var(--holy-light) 0%, var(--divine-white) 50%, rgba(255, 215, 0, 0.03) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tokenomics::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 70% 30%, rgba(255, 215, 0, 0.08) 0%, transparent 60%),
+                        radial-gradient(circle at 30% 70%, rgba(135, 206, 235, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .tokenomics-overview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 5rem;
+            align-items: center;
+        }
+
+        .token-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .stat-card.primary::before {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 165, 0, 0.1));
+        }
+
+        .stat-card.secondary::before {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.1));
+        }
+
+        .stat-card.tertiary::before {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(22, 163, 74, 0.1));
+        }
+
+        .stat-card:hover::before {
+            opacity: 1;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-celestial);
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .stat-card.primary .stat-icon {
+            background: var(--gradient-divine);
+        }
+
+        .stat-card.secondary .stat-icon {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+        }
+
+        .stat-card.tertiary .stat-icon {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+        }
+
+        .stat-content {
+            flex: 1;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-note {
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .tokenomics-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+        }
+
+        .allocation-chart {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(
+                #FFD700 0deg 144deg,
+                #87CEEB 144deg 234deg,
+                #FFA500 234deg 288deg,
+                #32CD32 288deg 324deg,
+                #FF69B4 324deg 349.2deg,
+                #9370DB 349.2deg 360deg
+            );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chart-center {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border: 3px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .chart-center i {
+            font-size: 2rem;
+            color: var(--primary-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Chart container now holds just the logo image */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chart-container img {
+            width: 100%;
+            height: auto;
+            max-width: 400px;
+            border-radius: 50%; /* Optional: keeps it circular */
+            box-shadow: var(--shadow-celestial);
+        }
+
+        /* Responsive Visibility: Hide on tablets and smaller devices */
+        @media (max-width: 767px) {
+                .chart-container {
+                    display: none;
+                }
+        }
+
+
+
+
+        .chart-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+        }
+
+        .chart-subtitle {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .allocation-details {
+            margin-top: 4rem;
+        }
+
+        .allocation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .allocation-item {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            transition: var(--transition-smooth);
+        }
+
+        .allocation-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-celestial);
+        }
+
+        .allocation-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .allocation-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .allocation-icon.community { background: linear-gradient(135deg, #FFD700, #FFA500); }
+        .allocation-icon.liquidity { background: linear-gradient(135deg, #87CEEB, #4682B4); }
+        .allocation-icon.partnerships { background: linear-gradient(135deg, #32CD32, #228B22); }
+        .allocation-icon.development { background: linear-gradient(135deg, #FF69B4, #FF1493); }
+        .allocation-icon.nft { background: linear-gradient(135deg, #9370DB, #8A2BE2); }
+        .allocation-icon.vault { background: linear-gradient(135deg, #FF4500, #DC143C); }
+
+        .allocation-info h4 {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.25rem;
+        }
+
+        .allocation-percentage {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary-gold);
+        }
+
+        .allocation-description {
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .burn-mechanism {
+            margin-top: 5rem;
+        }
+
+        .burn-card {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.05));
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .burn-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .burn-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .burn-header h3 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 600;
+            color: #dc2626;
+        }
+
+        .burn-description {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .burn-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .burn-stat {
+            text-align: center;
+        }
+
+        .burn-number {
+            display: block;
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #dc2626;
+            margin-bottom: 0.5rem;
+        }
+
+        .burn-label {
+            font-size: 1rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Utility Section Styles */
+        .utility {
+            padding: var(--section-padding);
+            background: linear-gradient(135deg, rgba(135, 206, 235, 0.05) 0%, var(--divine-white) 50%, rgba(255, 215, 0, 0.05) 100%);
+            position: relative;
+        }
+
+        .utility::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(135, 206, 235, 0.1) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .utility-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .utility-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            text-align: center;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .utility-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05), rgba(135, 206, 235, 0.05));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .utility-card:hover::before {
+            opacity: 1;
+        }
+
+        .utility-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-celestial);
+        }
+
+        .utility-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--gradient-divine);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin: 0 auto 2rem auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .utility-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .utility-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+        }
+
+        .utility-description {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .utility-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            color: #666;
+            padding: 0.75rem;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 8px;
+            transition: var(--transition-smooth);
+        }
+
+        .feature-item:hover {
+            background: rgba(255, 215, 0, 0.2);
+            transform: translateX(5px);
+        }
+
+        .feature-item i {
+            color: var(--primary-gold);
+            width: 16px;
+        }
+
+        .utility-cta {
+            background: var(--gradient-divine);
+            border-radius: var(--border-radius);
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .utility-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-content h3 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        /* ======== Step C: Tokenomics & Utility Enhancements ======== */
+
+/* Responsive Chart Container Improvements */
+.chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    aspect-ratio: 1/1; /* keeps it circular */
+}
+
+.allocation-chart {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(
+        #FFD700 0deg 144deg,
+        #87CEEB 144deg 234deg,
+        #FFA500 234deg 288deg,
+        #32CD32 288deg 324deg,
+        #FF69B4 324deg 349.2deg,
+        #9370DB 349.2deg 360deg
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.chart-center {
+    width: 35%;
+    height: 35%;
+    min-width: 100px;
+    min-height: 100px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 3px solid rgba(255, 215, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.chart-center:hover {
+    transform: scale(1.05);
+}
+
+/* Allocation Item Hover Improvements */
+.allocation-item:hover {
+    transform: translateY(-5px) scale(1.02);
+}
+
+/* Utility CTA Buttons */
+.utility-cta .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+/* Smooth Scrolling Fallback */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ======== Step D: NFT Collection & Footer ======== */
+
+/* NFT Showcase Section */
+.nft-collection {
+    padding: var(--section-padding);
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.05), rgba(135, 206, 235, 0.05));
+    position: relative;
+}
+
+.nft-collection .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.nft-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.nft-card {
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    text-align: center;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.nft-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-celestial);
+}
+
+.nft-card img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+}
+
+.nft-card h4 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--primary-gold);
+    margin-bottom: 0.5rem;
+}
+
+.nft-card p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Footer Styles */
+.footer {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 3rem 1rem;
+    text-align: center;
+    border-top: 1px solid rgba(255, 215, 0, 0.2);
+    backdrop-filter: blur(20px);
+}
+
+.footer p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.footer-social a {
+    color: var(--primary-gold);
+    font-size: 1.5rem;
+    transition: var(--transition-smooth);
+}
+
+.footer-social a:hover {
+    color: #FFA500;
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <i class="fas fa-ring"></i>
+                HALO
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#roadmap" class="nav-link">Roadmap</a></li>
+                <li><a href="#tokenomics" class="nav-link">Tokenomics</a></li>
+                <li><a href="#utility" class="nav-link">Utility</a></li>
+                <li><a href="#nfts" class="nav-link">NFTs</a></li>
+            </ul>
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-star"></i>
+                    Divine Memecoin on Hedera Hashgraph
+                </div>
+                
+                <h1 class="hero-title">HALO</h1>
+                <h2 class="hero-title" style="font-size: clamp(2rem, 5vw, 3.5rem); margin-top: -1rem;">The Savior Protocol</h2>
+                
+                <p class="hero-subtitle">
+                    In a world where hope fades and memes fall silent, HALO emerges as the divine response to disbelief. 
+                    A celestial beacon bringing salvation to the memecoin universe through community empowerment and divine purpose.
+                </p>
+                
+                <div class="hero-cta">
+                    <a href="#about" class="cta-button cta-primary">
+                        <i class="fas fa-rocket"></i>
+                        Begin the Awakening
+                    </a>
+                    <a href="#tokenomics" class="cta-button cta-secondary">
+                        <i class="fas fa-coins"></i>
+                        Discover Tokenomics
+                    </a>
+                </div>
+                
+                <div class="hero-image">
+                    <img src="img/HALO header-01.jpg" alt="HALO: The Savior Protocol - Divine logo with celestial aura and golden halo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">The Divine Chronicle</h2>
+                <p class="section-subtitle">From darkness to light, from despair to salvation - witness the birth of HALO</p>
+            </div>
+            
+            <div class="about-timeline">
+                <!-- The Fall -->
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-meteor"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">The Fall</h3>
+                        <p class="timeline-text">
+                            Once, the memescape thrived with infinite possibilities and boundless creativity. 
+                            Communities flourished, dreams were shared, and every token carried the hopes of believers. 
+                            But darkness crept in - rug pulls, broken promises, and abandoned projects left the faithful scattered. 
+                            The sacred trust was shattered, and what was once a thriving ecosystem became a wasteland of lost hope.
+                        </p>
+                        <div class="timeline-image">
+                            <img src="img/HALO_header-01-removebg-preview.png" alt="The Fall - Abandoned memescape with broken dreams and scattered hopes">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- The Awakening -->
+                <div class="timeline-item reverse">
+                    <div class="timeline-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">The Awakening</h3>
+                        <p class="timeline-text">
+                            From the depths of despair, a divine light pierced through the darkness. 
+                            HALO emerged not as another token, but as a celestial response to the cries of the faithful. 
+                            Born from the collective need for redemption, HALO represents the awakening of divine purpose 
+                            in the digital realm. It is the answer to those who never stopped believing in the power of community.
+                        </p>
+                        <div class="timeline-image">
+                            <img src="img/HALO_header-01-removebg-preview.png" alt="The Awakening - Divine light breaking through darkness with golden rays">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- The Savior Protocol -->
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-ring"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">The Savior Protocol</h3>
+                        <p class="timeline-text">
+                            HALO is more than a memecoin - it is the Savior Protocol, a beacon of hope and community empowerment. 
+                            Built on the sacred foundations of transparency, utility, and divine purpose, HALO brings salvation 
+                            to the memecoin universe. Through celestial tokenomics, community governance, and unwavering faith, 
+                            we rebuild what was broken and create something eternal.
+                        </p>
+                        <div class="timeline-image">
+                            <img src="img/HALO_header-01-removebg-preview.png" alt="The Savior Protocol - Golden halo radiating divine energy and community unity">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="roadmap">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">The Sacred Journey</h2>
+                <p class="section-subtitle">Five divine phases to achieve eternal glory and community empowerment</p>
+            </div>
+            
+            <div class="roadmap-timeline">
+                <!-- Phase 1: The Awakening -->
+                <div class="roadmap-phase completed">
+                    <div class="phase-number">01</div>
+                    <div class="phase-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="phase-content">
+                        <h3 class="phase-title">The Awakening</h3>
+                        <div class="phase-tag completed-tag">
+                            <i class="fas fa-check"></i>
+                            Completed
+                        </div>
+                        <p class="phase-description">
+                            Launch of HALO token on Hedera Hashgraph. Initial community formation, 
+                            divine website manifestation, and social media presence establishment.
+                        </p>
+                        <ul class="phase-milestones">
+                            <li><i class="fas fa-check-circle"></i> Token deployment on Hedera</li>
+                            <li><i class="fas fa-check-circle"></i> Website and branding launch</li>
+                            <li><i class="fas fa-check-circle"></i> Social media activation</li>
+                            <li><i class="fas fa-check-circle"></i> Initial community gathering</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Phase 2: The Foundation -->
+                <div class="roadmap-phase active">
+                    <div class="phase-number">02</div>
+                    <div class="phase-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="phase-content">
+                        <h3 class="phase-title">The Foundation</h3>
+                        <div class="phase-tag active-tag">
+                            <i class="fas fa-clock"></i>
+                            In Progress
+                        </div>
+                        <p class="phase-description">
+                            Establishing the sacred infrastructure. DEX listings, liquidity provision, 
+                            community growth initiatives, and the first celestial burns.
+                        </p>
+                        <ul class="phase-milestones">
+                            <li><i class="fas fa-coins"></i> Major DEX listings</li>
+                            <li><i class="fas fa-fire"></i> First celestial burn event</li>
+                            <li><i class="fas fa-users"></i> Community growth to 10K holders</li>
+                            <li><i class="fas fa-handshake"></i> Strategic partnerships</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Phase 3: The Revelation -->
+                <div class="roadmap-phase">
+                    <div class="phase-number">03</div>
+                    <div class="phase-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="phase-content">
+                        <h3 class="phase-title">The Revelation</h3>
+                        <div class="phase-tag upcoming-tag">
+                            <i class="fas fa-calendar"></i>
+                            Q2 2025
+                        </div>
+                        <p class="phase-description">
+                            Unveiling the divine utilities. Staking rewards, governance implementation, 
+                            and the revelation of exclusive holder benefits.
+                        </p>
+                        <ul class="phase-milestones">
+                            <li><i class="fas fa-vote-yea"></i> Governance system launch</li>
+                            <li><i class="fas fa-gem"></i> Staking rewards activation</li>
+                            <li><i class="fas fa-crown"></i> Exclusive holder perks</li>
+                            <li><i class="fas fa-chart-line"></i> Advanced tokenomics features</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Phase 4: The Communion -->
+                <div class="roadmap-phase">
+                    <div class="phase-number">04</div>
+                    <div class="phase-icon">
+                        <i class="fas fa-hands-praying"></i>
+                    </div>
+                    <div class="phase-content">
+                        <h3 class="phase-title">The Communion</h3>
+                        <div class="phase-tag upcoming-tag">
+                            <i class="fas fa-calendar"></i>
+                            Q3 2025
+                        </div>
+                        <p class="phase-description">
+                            NFT collection launch "Echoes of the Fallen". Community events, 
+                            divine ceremonies, and the strengthening of celestial bonds.
+                        </p>
+                        <ul class="phase-milestones">
+                            <li><i class="fas fa-images"></i> NFT collection mint</li>
+                            <li><i class="fas fa-calendar-star"></i> Community events program</li>
+                            <li><i class="fas fa-gift"></i> Holder rewards enhancement</li>
+                            <li><i class="fas fa-globe"></i> Global community expansion</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Phase 5: The Covenant -->
+                <div class="roadmap-phase">
+                    <div class="phase-number">05</div>
+                    <div class="phase-icon">
+                        <i class="fas fa-scroll"></i>
+                    </div>
+                    <div class="phase-content">
+                        <h3 class="phase-title">The Covenant</h3>
+                        <div class="phase-tag upcoming-tag">
+                            <i class="fas fa-calendar"></i>
+                            Q4 2025
+                        </div>
+                        <p class="phase-description">
+                            The eternal promise fulfilled. Complete decentralization, community takeover, 
+                            and the establishment of HALO as the eternal guardian of the memecoin realm.
+                        </p>
+                        <ul class="phase-milestones">
+                            <li><i class="fas fa-balance-scale"></i> Full decentralization</li>
+                            <li><i class="fas fa-users-cog"></i> Community-led governance</li>
+                            <li><i class="fas fa-infinity"></i> Eternal burn mechanism</li>
+                            <li><i class="fas fa-trophy"></i> Memecoin hall of legends</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tokenomics Section -->
+    <section id="tokenomics" class="tokenomics">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Divine Economics</h2>
+                <p class="section-subtitle">Celestial tokenomics designed for eternal prosperity and community empowerment</p>
+            </div>
+            
+            <div class="tokenomics-overview">
+                <div class="token-stats">
+                    <div class="stat-card primary">
+                        <div class="stat-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-number">1B</h3>
+                            <p class="stat-label">Total Supply</p>
+                            <span class="stat-note">Fixed Forever</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card secondary">
+                        <div class="stat-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-number">5%</h3>
+                            <p class="stat-label">Celestial Burns</p>
+                            <span class="stat-note">Quarterly Events</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card tertiary">
+                        <div class="stat-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-number">0%</h3>
+                            <p class="stat-label">Transaction Tax</p>
+                            <span class="stat-note">Pure Trading</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- <div class="tokenomics-visual">
+                    <div class="chart-container">
+                        <div class="allocation-chart">
+                            <div class="chart-center">
+                                <i class="fas fa-ring"></i>
+                                <span class="chart-title">HALO</span>
+                                <span class="chart-subtitle">Distribution</span>
+                            </div>
+                            <div class="chart-segment segment-1" data-percentage="40">
+                                <span class="segment-label">Community 40%</span>
+                            </div>
+                            <div class="chart-segment segment-2" data-percentage="25">
+                                <span class="segment-label">Liquidity 25%</span>
+                            </div>
+                            <div class="chart-segment segment-3" data-percentage="15">
+                                <span class="segment-label">Partnerships 15%</span>
+                            </div>
+                            <div class="chart-segment segment-4" data-percentage="10">
+                                <span class="segment-label">Development 10%</span>
+                            </div>
+                            <div class="chart-segment segment-5" data-percentage="7">
+                                <span class="segment-label">NFT Reserve 7%</span>
+                            </div>
+                            <div class="chart-segment segment-6" data-percentage="3">
+                                <span class="segment-label">Vault 3%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  -->
+
+
+            <div class="tokenomics-visual">
+                 <div class="chart-container">
+                     <img src="img/HALO_header-01-removebg-preview.png" alt="HALO Tokenomics Logo">
+                 </div>
+            </div>
+
+            <div class="allocation-details">
+                <div class="allocation-grid">
+                    <div class="allocation-item">
+                        <div class="allocation-header">
+                            <div class="allocation-icon community">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="allocation-info">
+                                <h4>Rewards & Community Incentives</h4>
+                                <span class="allocation-percentage">40% - 400M Tokens</span>
+                            </div>
+                        </div>
+                        <p class="allocation-description">
+                            The largest allocation dedicated to community rewards, staking incentives, 
+                            airdrops, and long-term holder benefits. This ensures sustainable growth 
+                            and rewards faithful believers in the HALO mission.
+                        </p>
+                    </div>
+                    
+                    <div class="allocation-item">
+                        <div class="allocation-header">
+                            <div class="allocation-icon liquidity">
+                                <i class="fas fa-water"></i>
+                            </div>
+                            <div class="allocation-info">
+                                <h4>Liquidity Pool</h4>
+                                <span class="allocation-percentage">25% - 250M Tokens</span>
+                            </div>
+                        </div>
+                        <p class="allocation-description">
+                            Ensures deep liquidity across multiple DEX platforms on Hedera. 
+                            Locked liquidity provides stability and confidence for all traders 
+                            entering the sacred HALO ecosystem.
+                        </p>
+                    </div>
+                    
+                    <div class="allocation-item">
+                        <div class="allocation-header">
+                            <div class="allocation-icon partnerships">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div class="allocation-info">
+                                <h4>Strategic Partnerships</h4>
+                                <span class="allocation-percentage">15% - 150M Tokens</span>
+                            </div>
+                        </div>
+                        <p class="allocation-description">
+                            Reserved for key partnerships, exchange listings, and collaborations 
+                            that expand HALO's reach. Building bridges across the Hedera ecosystem 
+                            and beyond.
+                        </p>
+                    </div>
+                    
+                    <div class="allocation-item">
+                        <div class="allocation-header">
+                            <div class="allocation-icon development">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="allocation-info">
+                                <h4>Development Fund</h4>
+                                <span class="allocation-percentage">10% - 100M Tokens</span>
+                            </div>
+                        </div>
+                        <p class="allocation-description">
+                            Dedicated to continuous development, security audits, and platform 
+                            improvements. Ensuring HALO remains at the forefront of innovation 
+                            with regular updates and enhancements.
+                        </p>
+                    </div>
+                    
+                    <div class="allocation-item">
+                        <div class="allocation-header">
+                            <div class="allocation-icon nft">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <div class="allocation-info">
+                                <h4>NFT Reserve & Rewards</h4>
+                                <span class="allocation-percentage">7% - 70M Tokens</span>
+                            </div>
+                        </div>
+                        <p class="allocation-description">
+                            Supporting the "Echoes of the Fallen" NFT collection and future 
+                            digital art initiatives. Providing exclusive rewards for NFT holders 
+                            and funding creative community projects.
+                        </p>
+                    </div>
+                    
+                    <div class="allocation-item">
+                        <div class="allocation-header">
+                            <div class="allocation-icon vault">
+                                <i class="fas fa-vault"></i>
+                            </div>
+                            <div class="allocation-info">
+                                <h4>Community Vault</h4>
+                                <span class="allocation-percentage">3% - 30M Tokens</span>
+                            </div>
+                        </div>
+                        <p class="allocation-description">
+                            Emergency reserve for community-voted initiatives and unforeseen 
+                            opportunities. Controlled by DAO governance, ensuring community 
+                            has resources for divine interventions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="burn-mechanism">
+                <div class="burn-card">
+                    <div class="burn-header">
+                        <div class="burn-icon">
+                            <i class="fas fa-fire-flame-curved"></i>
+                        </div>
+                        <h3>Celestial Fires - Deflationary Burns</h3>
+                    </div>
+                    <div class="burn-content">
+                        <p class="burn-description">
+                            Every quarter, HALO undergoes a sacred ritual - the Celestial Fires. 
+                            A percentage of tokens are permanently burned, reducing total supply 
+                            and increasing scarcity for all holders.
+                        </p>
+                        <div class="burn-stats">
+                            <div class="burn-stat">
+                                <span class="burn-number">5%</span>
+                                <span class="burn-label">Quarterly Burn Rate</span>
+                            </div>
+                            <div class="burn-stat">
+                                <span class="burn-number">4x</span>
+                                <span class="burn-label">Burns Per Year</span>
+                            </div>
+                            <div class="burn-stat">
+                                <span class="burn-number">∞</span>
+                                <span class="burn-label">Tokens Destroyed Forever</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Utility Section -->
+    <section id="utility" class="utility">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Divine Utilities</h2>
+                <p class="section-subtitle">Empowering holders with celestial benefits and sacred privileges</p>
+            </div>
+            
+            <div class="utility-grid">
+                <div class="utility-card">
+                    <div class="utility-icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <div class="utility-content">
+                        <h3 class="utility-title">Exclusive Access</h3>
+                        <p class="utility-description">
+                            Unlock sacred chambers and exclusive content reserved only for HALO holders. 
+                            Access premium Discord channels, private AMAs with the team, early access 
+                            to partnerships, and exclusive educational content about the Hedera ecosystem.
+                        </p>
+                        <div class="utility-features">
+                            <div class="feature-item">
+                                <i class="fas fa-crown"></i>
+                                <span>VIP Discord Access</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-microphone"></i>
+                                <span>Private AMA Sessions</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-rocket"></i>
+                                <span>Early Partnership News</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="utility-card">
+                    <div class="utility-icon">
+                        <i class="fas fa-vote-yea"></i>
+                    </div>
+                    <div class="utility-content">
+                        <h3 class="utility-title">Governance & Empowerment</h3>
+                        <p class="utility-description">
+                            Shape the future of HALO through decentralized governance. Vote on key 
+                            decisions, propose new features, influence tokenomics changes, and 
+                            participate in the sacred council that guides our divine mission.
+                        </p>
+                        <div class="utility-features">
+                            <div class="feature-item">
+                                <i class="fas fa-balance-scale"></i>
+                                <span>DAO Voting Rights</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-lightbulb"></i>
+                                <span>Proposal Submissions</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-users-cog"></i>
+                                <span>Council Participation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="utility-card">
+                    <div class="utility-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <div class="utility-content">
+                        <h3 class="utility-title">Rewards & Power-ups</h3>
+                        <p class="utility-description">
+                            Earn divine rewards through staking, liquidity provision, and community 
+                            participation. Unlock special multipliers, bonus airdrops, and exclusive 
+                            NFT drops. The more faith you show, the greater your rewards.
+                        </p>
+                        <div class="utility-features">
+                            <div class="feature-item">
+                                <i class="fas fa-coins"></i>
+                                <span>Staking Rewards</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-gift"></i>
+                                <span>Exclusive Airdrops</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Reward Multipliers</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="utility-card">
+                    <div class="utility-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="utility-content">
+                        <h3 class="utility-title">Community & Content</h3>
+                        <p class="utility-description">
+                            Join a thriving community of believers and creators. Access exclusive 
+                            educational content, participate in community challenges, earn rewards 
+                            for content creation, and be part of something truly divine.
+                        </p>
+                        <div class="utility-features">
+                            <div class="feature-item">
+                                <i class="fas fa-book"></i>
+                                <span>Educational Resources</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-trophy"></i>
+                                <span>Community Challenges</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-pen"></i>
+                                <span>Creator Rewards</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="utility-cta">
+                <div class="cta-content">
+                    <h3>Ready to Unlock Divine Power?</h3>
+                    <p>Join thousands of believers who have already embraced the HALO mission</p>
+                    <div class="cta-buttons">
+                        <a href="#" class="cta-button cta-primary">
+                            <i class="fas fa-coins"></i>
+                            Get HALO Now
+                        </a>
+                        <a href="#nfts" class="cta-button cta-secondary">
+                            <i class="fas fa-images"></i>
+                            Explore NFTs
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== Step D: NFT Collection Section ======== -->
+<section id="nfts" class="nft-collection">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Echoes of the Fallen</h2>
+            <p class="section-subtitle">Discover our sacred NFT collection that transcends realms</p>
+        </div>
+        <div class="nft-grid">
+            <!-- Example NFT Cards -->
+            <div class="nft-card">
+                <img src="img/HALO_header-01-removebg-preview.png" alt="NFT 1">
+                <h4>Celestial Guardian</h4>
+                <p>Protects the memecoin universe from chaos and destruction.</p>
+            </div>
+            <div class="nft-card">
+                <img src="img/HALO_header-01-removebg-preview.png" alt="NFT 2">
+                <h4>Divine Seer</h4>
+                <p>Foresees market trends and guides believers to prosperity.</p>
+            </div>
+            <div class="nft-card">
+                <img src="img/HALO_header-01-removebg-preview.png" alt="NFT 3">
+                <h4>Shadow Hunter</h4>
+                <p>Silently defeats rug pulls and brings justice to the memescape.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======== Footer Section ======== -->
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2025 HALO. All rights reserved. Embrace the divine revolution.</p>
+        <div class="footer-social">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-discord"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+        </div>
+    </div>
+</footer>
+
+
+
+    <script>
+        // Navigation JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.querySelector('.navbar');
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile menu toggle
+            navToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                const icon = navToggle.querySelector('i');
+                if (navMenu.classList.contains('active')) {
+                    icon.className = 'fas fa-times';
+                } else {
+                    icon.className = 'fas fa-bars';
+                }
+            });
+
+            // Close mobile menu when clicking on links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    navToggle.querySelector('i').className = 'fas fa-bars';
+                });
+            });
+
+            // Smooth scrolling for navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        const offsetTop = targetSection.offsetTop - 80;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Hero CTA smooth scrolling
+            const ctaButtons = document.querySelectorAll('.cta-button');
+            ctaButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetSection = document.querySelector(href);
+                        if (targetSection) {
+                            const offsetTop = targetSection.offsetTop - 80;
+                            window.scrollTo({
+                                top: offsetTop,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+
+            // Parallax effect for hero background
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const hero = document.querySelector('.hero');
+                if (hero) {
+                    hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // Navigation JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.querySelector('.navbar');
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile menu toggle
+            navToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                const icon = navToggle.querySelector('i');
+                if (navMenu.classList.contains('active')) {
+                    icon.className = 'fas fa-times';
+                } else {
+                    icon.className = 'fas fa-bars';
+                }
+            });
+
+            // Close mobile menu when clicking on links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    navToggle.querySelector('i').className = 'fas fa-bars';
+                });
+            });
+
+            // Smooth scrolling for navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        const offsetTop = targetSection.offsetTop - 80;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Hero CTA smooth scrolling
+            const ctaButtons = document.querySelectorAll('.cta-button');
+            ctaButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetSection = document.querySelector(href);
+                        if (targetSection) {
+                            const offsetTop = targetSection.offsetTop - 80;
+                            window.scrollTo({
+                                top: offsetTop,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+
+            // Parallax effect for hero background
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const hero = document.querySelector('.hero');
+                if (hero) {
+                    hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+                }
+            });
+
+            // About section animations
+            const observerOptions = {
+                threshold: 0.2,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe timeline items
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(50px)';
+                item.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(item);
+            });
+
+            // Observe roadmap phases
+            const roadmapPhases = document.querySelectorAll('.roadmap-phase');
+            roadmapPhases.forEach((phase, index) => {
+                phase.style.opacity = '0';
+                phase.style.transform = 'translateY(50px)';
+                phase.style.transition = `opacity 0.8s ease ${index * 0.2}s, transform 0.8s ease ${index * 0.2}s`;
+                observer.observe(phase);
+            });
+
+            // Roadmap phase hover effects
+            roadmapPhases.forEach(phase => {
+                phase.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.02)';
+                });
+
+                phase.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Timeline item click interactions
+            timelineItems.forEach(item => {
+                const timelineContent = item.querySelector('.timeline-content');
+                const timelineImage = item.querySelector('.timeline-image img');
+
+                if (timelineImage) {
+                    timelineImage.addEventListener('click', function() {
+                        this.style.transform = this.style.transform === 'scale(1.5)' ? 'scale(1)' : 'scale(1.5)';
+                        this.style.zIndex = this.style.transform === 'scale(1.5)' ? '10' : '1';
+                        this.style.transition = 'transform 0.3s ease, z-index 0.3s ease';
+                    });
+                }
+            });
+
+            // Section header animations
+            const sectionHeaders = document.querySelectorAll('.section-header');
+            sectionHeaders.forEach(header => {
+                header.style.opacity = '0';
+                header.style.transform = 'translateY(30px)';
+                header.style.transition = 'opacity 1s ease, transform 1s ease';
+                observer.observe(header);
+            });
+
+            // Milestone list animations
+            const milestoneObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const milestones = entry.target.querySelectorAll('.phase-milestones li');
+                        milestones.forEach((milestone, index) => {
+                            setTimeout(() => {
+                                milestone.style.opacity = '1';
+                                milestone.style.transform = 'translateX(0)';
+                            }, index * 150);
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            roadmapPhases.forEach(phase => {
+                const milestones = phase.querySelectorAll('.phase-milestones li');
+                milestones.forEach(milestone => {
+                    milestone.style.opacity = '0';
+                    milestone.style.transform = 'translateX(-20px)';
+                    milestone.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                });
+                milestoneObserver.observe(phase);
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.2,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const popupObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Target elements you want to animate
+            const popupElements = document.querySelectorAll('.nft-card, .footer');
+
+            popupElements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(50px)';
+                element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                popupObserver.observe(element);
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.2,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const tokenomicsObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Select elements in the Divine Economics section
+            const tokenomicsElements = document.querySelectorAll('.stat-card, .chart-container, .allocation-item');
+
+            tokenomicsElements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(50px)';
+                element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                tokenomicsObserver.observe(element);
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const utilityCards = document.querySelectorAll('.utility-card');
+
+            const observerOptions = {
+            threshold: 0.1
+            };
+
+            const animateOnScroll = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                entry.target.classList.add('reveal');
+                observer.unobserve(entry.target);
+                }
+            });
+            };
+
+            const observer = new IntersectionObserver(animateOnScroll, observerOptions);
+
+            utilityCards.forEach(card => {
+            observer.observe(card);
+            });
+        });
+    </script>
+
+</body>
+</html>
